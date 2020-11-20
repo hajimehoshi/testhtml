@@ -1,0 +1,15 @@
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    let fs = window.webkitRequestFileSystem(window.TEMPORARY, 5*1024*1024, () => {
+      console.log('done');
+    });
+    let c = 0;
+    let f = () => {
+      c++
+      document.getElementById('count').textContent = c;
+      requestAnimationFrame(f);
+    };
+    f();
+  });
+</script>
+<p id="count"></p>
